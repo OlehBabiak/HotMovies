@@ -1,0 +1,90 @@
+// Width
+$width-min: 0;
+$width-xs: 320px;
+$width-s: 480px;
+$width-md: 768px;
+$width-lg: 1024px;
+$width-lg-1: 1200px;
+$width-lg-2: 1400px;
+$width-xlg: 1920px;
+
+// Common
+$grid-breakpoints: (
+  min: $width-min,
+  xs: $width-xs,
+  s: $width-s,
+  md: $width-md,
+  lg: $width-lg,
+  lg1: $width-lg-1,
+  lg2: $width-lg-2,
+  xlg: $width-xlg,
+);
+
+// Base fonts
+$Black: 'SourceSansPro-Black', 'Arial', sans-serif;
+$BlackIt: 'SourceSansPro-BlackIt', 'Arial', sans-serif;
+$Bold: 'SourceSansPro-Bold', 'Arial', sans-serif;
+$BoldIt: 'SourceSansPro-BoldIt', 'Arial', sans-serif;
+$ExtraLight: 'SourceSansPro-ExtraLight', 'Arial', sans-serif;
+$ExtraLightIt: 'SourceSansPro-ExtraLightIt', 'Arial', sans-serif;
+$It: 'SourceSansPro-It', 'Arial', sans-serif;
+$Light: 'SourceSansPro-Light', 'Arial', sans-serif;
+$LightIt: 'SourceSansPro-LightIt', 'Arial', sans-serif;
+$Regular: 'SourceSansPro-Regular', 'Arial', sans-serif;
+$Semibold: 'SourceSansPro-Semibold', 'Arial', sans-serif;
+$SemiboldIt: 'SourceSansPro-SemiboldIt', 'Arial', sans-serif;
+
+
+
+// Font sizes
+$font-none: 0;
+$font-micro: 10px;
+$font-small: 12px;
+$font-normal: 14px;
+$font-medium: 16px;
+$font-medium-plus: 18px;
+$font-big: 20px;
+$font-large: 24px;
+$font-large0: 30px;
+$font-large1: 32px;
+$font-large2: 36px;
+$font-large3: 40px;
+$font-large4: 48px;
+$font-large5: 53px;
+$font-large6: 66px;
+
+// font-weight
+
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+
+/* Numeric keyword values */
+$font-weight-100: 100;
+$font-weight-200: 200;
+$font-weight-300: 300;
+$font-weight-400: 400; /* normal */
+$font-weight-500: 500;
+$font-weight-600: 600; /* semibold */
+$font-weight-700: 700; /* bold */
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+
+//gap
+$min-gap: 8px;
+$medium-gap: 16px;
+$max-gap: 24px;
+$max-gap2: 28px;
+$max-gap3: 32px;
+$max-gap4: 48px;
+
+//line-height
+$line-height20: 20px;
+$line-height22: 22px;
+$line-height24: 24px;
+$line-height28: 28px;
+$line-height50: 50px;
+$line-height100P: 100%;
+$line-height125P: 125%;
+
+$maxPrimaryPageWidth: 1400px

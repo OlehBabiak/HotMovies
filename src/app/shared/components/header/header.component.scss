@@ -1,0 +1,48 @@
+@import 'src/styles/constants/index';
+
+.header {
+  background-color: $blue500;
+  color: $white;
+
+  &__logo {
+    display: flex;
+
+    img {
+      width: 240px;
+      height: 60px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $maxPrimaryPageWidth;
+    margin: 0 auto;
+    padding: 15px 40px;
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation {
+    flex: 1 0 20rem;
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+    margin-left: 40px;
+
+    a {
+      text-decoration: none;
+      font-size: $font-large;
+      color: $white;
+    }
+
+    a:hover {
+      color: $blue300;
+    }
+  }
+}
