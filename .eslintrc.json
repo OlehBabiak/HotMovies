@@ -1,9 +1,13 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -12,7 +16,9 @@
         "plugin:prettier/recommended",
         "eslint-config-prettier"
       ],
-      "plugins": ["prettier"],
+      "plugins": [
+        "prettier"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -35,8 +41,12 @@
       }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
       "rules": {
         "@angular-eslint/template/accessibility-label-has-associated-control": [
           "error",
@@ -44,14 +54,25 @@
             "labelComponents": [
               {
                 "selector": "my-custom-label",
-                "inputs": ["forControl"]
+                "inputs": [
+                  "forControl"
+                ]
               }
             ],
-            "controlComponents": ["my-custom-control"]
+            "controlComponents": [
+              "my-custom-control"
+            ]
           }
         ]
       }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/recommended"
+      ]
     }
   ]
 }
-

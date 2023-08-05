@@ -1,8 +1,10 @@
 @import 'src/styles/constants/index';
+@import 'src/styles/mixins/index';
 
 .header {
   background-color: $blue500;
   color: $white;
+  position: relative;
 
   &__logo {
     display: flex;
@@ -29,6 +31,9 @@
   }
 
   &__navigation {
+    @include media-breakpoint-between('min', 's') {
+      display: none;
+    }
     flex: 1 0 20rem;
     display: flex;
     justify-content: space-between;
@@ -45,4 +50,79 @@
       color: $blue300;
     }
   }
+
+  &__aside {
+    display: flex;
+  }
+
+  &__menu {
+    position: absolute;
+    width: 130px;
+    height: 300px;
+    top: 90px;
+    right: 10px;
+    border: 1px solid $grey400;
+    box-shadow: 3px 3px 4px 1px $grey400;
+    transition: 1s;
+    transform: translateX(0%);
+
+    .menu-items {
+      padding: 5px 0 5px 15px;
+    }
+
+    .menu-items a {
+      text-decoration: none;
+      font-size: $font-large;
+      color: $grey700;
+    }
+  }
 }
+
+.profile {
+  @include media-breakpoint-between('min', 's') {
+    display: none;
+  }
+}
+
+.burger-menu {
+  @include media-breakpoint-between('min', 's') {
+    width: 50px;
+    height: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .line:nth-child(1) {
+      transform: translate(8px, -1px) rotate(45deg);
+      transform-origin: left top;
+    }
+
+    .line:nth-child(2) {
+      transform: scale(0);
+    }
+
+    .line:nth-child(3) {
+      transform: translate(-8px, -31px) rotate(-45deg);
+      transform-origin: right bottom;
+    }
+  }
+  display: none;
+}
+
+.burger-menu span {
+  transition: all 0.3s;
+  border: 2px solid $white;
+  background-color: $white;
+  border-radius: 5px;
+}
+
+.burger-menu:hover {
+  cursor: pointer;
+}
+
+.inActive {
+  transition: 1s;
+  transform: translateX(110%);
+}
+
+

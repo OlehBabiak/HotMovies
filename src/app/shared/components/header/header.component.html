@@ -1,17 +1,38 @@
 <header class="header">
-    <div class="header__content">
-      <div class="header__nav-wrapper">
-        <div class="header__logo">
-          <img class="header__logo-img" src="assets/logo/logo.jpg" alt="logo"/>
-        </div>
-        <nav class="header__navigation">
-          <a routerLink="movies">Movies</a>
-          <a routerLink="shows">TV Shows</a>
-          <a routerLink="people">People</a>
-        </nav>
+  <div class="header__content">
+    <div class="header__nav-wrapper">
+      <div class="header__logo">
+        <img class="header__logo-img" src="assets/logo/logo.jpg" alt="logo" />
       </div>
-      <div class="header__aside">
-        profile
+      <nav class="header__navigation">
+        <a routerLink="movies">Movies</a>
+        <a routerLink="shows">TV Shows</a>
+        <a routerLink="people">People</a>
+      </nav>
+    </div>
+    <div class="header__aside">
+      <div class="profile">
+        O
+      </div>
+      <div (click)="onMenuActiveToggle(isMenuActive)" class="burger-menu">
+        <span [ngClass]="isMenuActive? 'line': ''"></span>
+        <span [ngClass]="isMenuActive? 'line': ''"></span>
+        <span [ngClass]="isMenuActive? 'line': ''"></span>
       </div>
     </div>
+  </div>
+  <div [ngClass]="isMenuActive? '' : 'inActive'" class="header__menu">
+    <div class="menu-items">
+      <a routerLink="movies">Movies</a>
+    </div>
+    <div class="menu-items">
+      <a routerLink="shows">TV Shows</a>
+    </div>
+    <div class="menu-items">
+      <a routerLink="people">People</a>
+    </div>
+    <div class="menu-items">
+      <p routerLink="people">Oleh</p>
+    </div>
+  </div>
 </header>
