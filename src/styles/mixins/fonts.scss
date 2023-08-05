@@ -4,7 +4,7 @@
   $font-size: $font-normal,
   $line-height: 1,
   $font-weight: normal,
-  $font-family: $font-source-sans-pro-regular
+  $font-family: $Regular
 ) {
   font: $font-weight #{$font-size}/#{$line-height} $font-family;
 }
