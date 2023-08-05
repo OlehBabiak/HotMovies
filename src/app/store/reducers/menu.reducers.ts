@@ -12,9 +12,10 @@ export const initialState: MenuState = {
 export const menuReducer = createReducer(
   initialState,
   on(isMenuActive, (state: MenuState, action) => {
+    console.log(action)
     return {
       ...state,
-      isMenuActive: action.value,
+      isMenuActive: !state.isMenuActive,
     };
   })
 );

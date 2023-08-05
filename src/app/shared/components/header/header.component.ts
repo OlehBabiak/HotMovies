@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  onMenuActiveToggle(value: boolean) {
-    this.store.dispatch(isMenuActive({ value: !value }));
+  onMenuActiveToggle() {
+    this.store.dispatch(isMenuActive());
   }
 }
