@@ -5,9 +5,18 @@
         <img class="header__logo-img" src="assets/logo/logo.jpg" alt="logo" />
       </div>
       <nav class="header__navigation">
-        <a routerLink="movies">Movies</a>
-        <a routerLink="shows">TV Shows</a>
-        <a routerLink="people">People</a>
+        <div routerLinkActive="router-active" routerLink="movies" class="header__navigation-item">
+          <a>Movies</a>
+          <div></div>
+        </div>
+        <div routerLinkActive="router-active"  routerLink="shows" class="header__navigation-item">
+          <a>TV Shows</a>
+          <div></div>
+        </div>
+        <div routerLinkActive="router-active"  routerLink="people" class="header__navigation-item">
+          <a>People</a>
+          <div></div>
+        </div>
       </nav>
     </div>
     <div class="header__aside">
