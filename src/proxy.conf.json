@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://api.themoviedb.org/3",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

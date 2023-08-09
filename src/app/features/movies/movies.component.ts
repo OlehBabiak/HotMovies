@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../shared/services/api.service';
 
 @Component({
   selector: 'app-movies',
@@ -6,7 +7,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
-  ngOnInit() {
+  constructor(private apiService: ApiService) {}
 
+  ngOnInit() {
+    this.apiService.getMovies().subscribe((value) => console.log(value));
   }
 }
