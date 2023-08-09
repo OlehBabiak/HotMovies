@@ -26,7 +26,6 @@ export class ApiInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${this.apiKey}` as string,
       }),
     });
-    console.log(modifiedReq)
     return next.handle(modifiedReq);
   }
 }
