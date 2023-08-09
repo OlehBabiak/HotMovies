@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
-import { MovieModel, ResponseData } from '../../shared/models';
-import {map, Observable} from 'rxjs';
-import { BASE_IMG_URL } from '../../shared/constants';
+import { MovieModel } from '../../shared/models';
+import { Observable } from 'rxjs';
+import { MoviesService } from './services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -13,18 +13,14 @@ import { BASE_IMG_URL } from '../../shared/constants';
 export class MoviesComponent implements OnInit {
   $movies!: Observable<MovieModel[]>;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private movieService: MoviesService
+  ) {}
 
   ngOnInit() {
-    this.$movies = this.apiService
-      .getMovies()
-      .pipe(
-        map((responseData: ResponseData<MovieModel>) =>
-          responseData.results.map((movie: MovieModel) => {
-            const modifiedPosterPath: string = `${BASE_IMG_URL}${movie.poster_path}`;
-            return { ...movie, poster_path: modifiedPosterPath };
-          })
-        )
-      )
+    this.$movies = this.movieService.modifyPosterPath(
+      this.apiService.getMovies()
+    );
   }
 }
