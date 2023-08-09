@@ -1,5 +1,3 @@
-import {MovieModel} from "./movie.model";
-
 export interface ResponseData<T> {
   "page": number,
   "results": [T],
