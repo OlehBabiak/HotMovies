@@ -1,0 +1,10 @@
+<div class="outer-ring" [style.width]="width * userScoreCoefficient.forOuterRing + 'px'"
+     [style.height]="width * userScoreCoefficient.forOuterRing + 'px'">
+  <div class="percent" [style.width]="width * userScoreCoefficient.forPercentRing + 'px'"
+       [style.height]="width * userScoreCoefficient.forPercentRing + 'px'">
+    <span [style.font-size]="width * userScoreCoefficient.forSpan + 'px'">{{percent}}</span>
+    <sup [style.font-size]="width * userScoreCoefficient.forSup + 'px'">%</sup>
+  </div>
+  <canvas #canvas [width]=width [height]=width></canvas>
+</div>
+
