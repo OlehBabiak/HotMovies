@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
     this.store
       .select(MenuSelectors.selectIsFilterActive)
       .subscribe((state): void => {
-        console.log(state);
         this.isMenuActive = state;
         this.cdr.markForCheck();
       });

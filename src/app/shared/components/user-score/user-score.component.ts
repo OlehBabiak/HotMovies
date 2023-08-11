@@ -32,7 +32,6 @@ export class UserScoreComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    console.log(this.width, this.percent);
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
     if (this.ctx) {

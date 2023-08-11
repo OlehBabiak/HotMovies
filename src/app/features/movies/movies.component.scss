@@ -16,3 +16,9 @@
     flex-wrap: nowrap;
   }
 }
+
+.pagination {
+  max-width: $maxPrimaryPageWidth;
+  padding: 15px 40px;
+  margin: 0 auto;
+}

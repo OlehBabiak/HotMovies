@@ -12,6 +12,7 @@ import { MoviesService } from './services/movies.service';
 })
 export class MoviesComponent implements OnInit {
   $movies!: Observable<MovieModel[]>;
+  currentPage: number = 1;
 
   constructor(
     private apiService: ApiService,
@@ -20,7 +21,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.$movies = this.movieService.modifyPosterPath(
-      this.apiService.getMovies()
+      this.apiService.getMovies(this.currentPage)
     );
   }
 }

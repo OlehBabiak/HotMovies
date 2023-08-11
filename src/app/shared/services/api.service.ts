@@ -14,8 +14,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<ResponseData<MovieModel>> {
-    const params = new HttpParams().set('page', 1).set('language', 'en-US');
+  getMovies(page: number): Observable<ResponseData<MovieModel>> {
+    const params = new HttpParams().set('page', page).set('language', 'en-US');
 
     return this.http.get<ResponseData<MovieModel>>(
       `/${this.trending}/${this.movie}/${this.day}`,
