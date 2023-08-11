@@ -1,17 +1,35 @@
 @import 'src/styles/constants/index';
 @import 'src/styles/mixins/index';
+
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
   border: 1px solid $grey200;
-  width: 220px;
+  //width: 220px;
   border-radius: $imageBorderRadius;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  @include media-breakpoint-down('s') {
+    width: 100%;
+  }
+  @include media-breakpoint-up('md') {
+    width: 300px;
+  }
+
+  @include media-breakpoint-up('lg') {
+    width: 250px;
+  }
+
+  @include media-breakpoint-up('lg1') {
+    width: 220px;
+  }
+
 
   img {
     width: 100%;
+    border-top-left-radius: $imageBorderRadius;
+    border-top-right-radius: $imageBorderRadius;
   }
 
   img:hover {

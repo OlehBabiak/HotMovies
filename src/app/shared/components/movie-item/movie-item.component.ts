@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import { MovieModel } from '../../models';
+import {USER_SCORE_WIDTH} from "../../constants";
 
 @Component({
   selector: 'app-movie-item',
@@ -9,6 +10,7 @@ import { MovieModel } from '../../models';
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie!: MovieModel;
+  userScoreWidth = USER_SCORE_WIDTH.forMovieItems
 
   ngOnInit() {
     console.log(this.movie)

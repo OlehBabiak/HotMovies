@@ -10,4 +10,9 @@
   flex-wrap: wrap;
   row-gap: 30px;
   column-gap: 4px;
+
+  @include media-breakpoint-down('s') {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }

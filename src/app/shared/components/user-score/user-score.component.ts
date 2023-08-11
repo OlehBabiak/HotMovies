@@ -1,31 +1,38 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
   ViewChild,
 } from '@angular/core';
-import { USER_SCORE_PERCENTAGE_LEVELS, USER_SCORE_LEVEL_COLORS, USER_SCORE_COEFFICIENT } from '../../constants';
+import {
+  USER_SCORE_COEFFICIENT,
+  USER_SCORE_LEVEL_COLORS,
+  USER_SCORE_PERCENTAGE_LEVELS,
+} from '../../constants';
 
 @Component({
   selector: 'app-user-score',
   templateUrl: './user-score.component.html',
   styleUrls: ['./user-score.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserScoreComponent implements AfterViewInit {
   @ViewChild('canvas', { static: true })
   canvasRef!: ElementRef<HTMLCanvasElement>;
   ctx: CanvasRenderingContext2D | null = null;
-  @Input() width: number = 60; // Радіус круга;
-  @Input() percent: number = 90;
-  startAngle: number = -Math.PI / 2; // Початковий кут (12 годинникова позиція)
-  endAngle: number = -Math.PI / 2 + (Math.PI * this.percent) / 50; // Кут до години великої стрілки на годиннику
-  radius = this.width / 2;
+  @Input() width!: number; // Радіус круга;
+  @Input() percent!: number;
+  startAngle!: number;
+  endAngle!: number;
+  radius!: number;
   userScoreCoefficient = USER_SCORE_COEFFICIENT;
 
   constructor() {}
 
   ngAfterViewInit(): void {
+    console.log(this.width, this.percent);
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
     if (this.ctx) {
@@ -37,6 +44,9 @@ export class UserScoreComponent implements AfterViewInit {
 
   drawClock(): void {
     if (!this.ctx) return;
+    this.radius = this.width / 2;
+    this.startAngle = -Math.PI / 2; // Початковий кут (12 годинникова позиція)
+    this.endAngle = -Math.PI / 2 + (Math.PI * this.percent) / 50; // Кут до години великої стрілки на годиннику
 
     let color: string;
     switch (true) {
@@ -83,5 +93,9 @@ export class UserScoreComponent implements AfterViewInit {
     this.ctx.closePath();
     this.ctx.fillStyle = color;
     this.ctx.fill();
+  }
+
+  calculateRoundedPercent(): number {
+    return Math.round(this.percent);
   }
 }

@@ -3,7 +3,7 @@ export const USER_SCORE_LEVEL_COLORS = {
   extraSmall: '#ffe599',
   small: '#ffd966',
   medium: '#cadc37',
-  large: '#8af063',
+  large: '#afaa4a',
   extraLarge: '#01D277FF'
 };
 
@@ -20,6 +20,10 @@ export const USER_SCORE_COEFFICIENT = {
   forPercentRing: 0.9,
   forSpan: 0.6,
   forSup: 0.2,
+};
+
+export const USER_SCORE_WIDTH = {
+  forMovieItems: 36,
 };
 
 

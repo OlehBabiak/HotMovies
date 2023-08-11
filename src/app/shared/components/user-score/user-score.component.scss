@@ -1,48 +1,46 @@
+.outer-ring {
+  position: absolute;
+  top: -25px;
+  left: 15px;
 
+  display: inline-block;
+  padding: 6px;
+  background-color: #081c22;
+  border-radius: 50%;
 
-  .outer-ring {
+  canvas {
     position: absolute;
-    top: 200px;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-    display: inline-block;
+  .percent {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
     padding: 6px;
     background-color: #081c22;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      canvas {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform:translate(-50%, -50%);
-      }
+    span {
+      display: block;
+      padding-top: 1px;
+      padding-left: 1px;
+      font-size: 3em;
+      color: white;
+      margin-right: 1px;
+    }
 
-      .percent {
-        position: absolute;
-        z-index: 5;
-        top: 50%;
-        left: 50%;
-        transform:translate(-50%, -50%);
-        border-radius: 50%;
-        padding: 6px;
-        background-color: #081c22;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        span {
-          display: block;
-          padding-top: 1px;
-          padding-left: 1px;
-          font-size: 3em;
-          color: white;
-          margin-right: 1px;
-        }
-
-        sup {
-          color: white;
-          margin-bottom: 4px;
-          margin-left: 1px;
-        }
-      }
+    sup {
+      color: white;
+      margin-bottom: 4px;
+      margin-left: 1px;
+    }
   }
+}
