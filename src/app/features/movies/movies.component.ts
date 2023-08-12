@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
 import { MovieModel } from '../../shared/models';
 import { Observable } from 'rxjs';
-import { MoviesService } from './services/movies.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/reducers';
 import {
@@ -26,18 +25,15 @@ export class MoviesComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private movieService: MoviesService,
     private store: Store<AppState>
   ) {}
 
   ngOnInit() {
     this.store.dispatch(updateMoviesStore({ value: [] }));
-    this.movieService
-      .modifyPosterPath(this.apiService.getMovies(1))
-      .subscribe((resp) => {
-        this.store.dispatch(pageNumber({ value: resp.page }));
-        this.store.dispatch(updateMoviesStore({ value: resp.results }));
-      });
+    this.apiService.getMovies(1).subscribe((resp) => {
+      this.store.dispatch(pageNumber({ value: resp.page }));
+      this.store.dispatch(updateMoviesStore({ value: resp.results }));
+    });
     this.$currentPage = this.store.select(selectPage);
     this.$movies = this.store.select(selectMovies);
   }
