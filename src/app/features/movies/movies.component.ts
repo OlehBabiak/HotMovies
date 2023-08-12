@@ -9,7 +9,10 @@ import {
   selectMovies,
   selectPage,
 } from '../../store/selectors/pagination.selectors';
-import {pageNumber, updateMoviesStore} from "../../store/actions/pagination.actions";
+import {
+  pageNumber,
+  updateMoviesStore,
+} from '../../store/actions/pagination.actions';
 
 @Component({
   selector: 'app-movies',
@@ -28,11 +31,13 @@ export class MoviesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.movieService.modifyPosterPath(this.apiService.getMovies(1)).subscribe((resp) => {
-      console.log('resp', resp)
-      this.store.dispatch(pageNumber({ value: resp.page }));
-      this.store.dispatch(updateMoviesStore({ value: resp.results }));
-    });
+    this.store.dispatch(updateMoviesStore({ value: [] }));
+    this.movieService
+      .modifyPosterPath(this.apiService.getMovies(1))
+      .subscribe((resp) => {
+        this.store.dispatch(pageNumber({ value: resp.page }));
+        this.store.dispatch(updateMoviesStore({ value: resp.results }));
+      });
     this.$currentPage = this.store.select(selectPage);
     this.$movies = this.store.select(selectMovies);
   }
