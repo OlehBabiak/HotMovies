@@ -8,6 +8,8 @@
     </ng-template>
   </div>
   <div class="pagination">
-    <app-pagination [page]="currentPage"></app-pagination>
+    <ng-container *ngIf="$currentPage | async as page">
+      <app-pagination *ngIf="page === 1" [page]="$currentPage | async"></app-pagination>
+    </ng-container>
   </div>
 </div>
