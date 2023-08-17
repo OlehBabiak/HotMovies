@@ -22,7 +22,6 @@ export class PaginationComponent {
   onPageLoad() {
     if (this.page) {
       this.apiService.getMovies(this.page + 1).subscribe((resp) => {
-        console.log('resp', resp);
         this.store.dispatch(pageNumber({ value: resp.page }));
         this.store.dispatch(updateMoviesStore({ value: resp.results }));
       });

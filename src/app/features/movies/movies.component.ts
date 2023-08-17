@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
 import { MovieModel } from '../../shared/models';
 import { Observable } from 'rxjs';

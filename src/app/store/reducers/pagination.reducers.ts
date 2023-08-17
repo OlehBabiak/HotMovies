@@ -26,7 +26,6 @@ export const paginationReducer: ActionReducer<PaginationState, any> =
       };
     }),
     on(updateMoviesStore, (state, action) => {
-      console.log([...state.results, ...action.value])
       return {
         ...state,
         results: [...state.results, ...action.value],

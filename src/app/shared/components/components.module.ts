@@ -5,6 +5,7 @@ import { MaxPrimaryPageWidthComponent } from './max-primary-page-width/max-prima
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import { UserScoreComponent } from './user-score/user-score.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -15,8 +16,14 @@ import { PaginationComponent } from './pagination/pagination.component';
     MaxPrimaryPageWidthComponent,
     UserScoreComponent,
     PaginationComponent,
+    FooterComponent,
   ],
-  exports: [HeaderComponent, UserScoreComponent, PaginationComponent],
+  exports: [
+    HeaderComponent,
+    UserScoreComponent,
+    PaginationComponent,
+    FooterComponent,
+  ],
   imports: [CommonModule, NgOptimizedImage, RouterLink, RouterLinkActive],
 })
 export class ComponentsModule {}

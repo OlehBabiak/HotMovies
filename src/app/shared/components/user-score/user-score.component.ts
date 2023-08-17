@@ -3,19 +3,26 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Inject,
   Input,
   ViewChild,
 } from '@angular/core';
 import {
-  USER_SCORE_COEFFICIENT,
-  USER_SCORE_LEVEL_COLORS,
-  USER_SCORE_PERCENTAGE_LEVELS,
+  defaultUserScoreConfig,
+  USER_SCORE_WIDTH_CONFIG_TOKEN,
+  UserScoreConfig,
 } from '../../constants';
 
 @Component({
   selector: 'app-user-score',
   templateUrl: './user-score.component.html',
   styleUrls: ['./user-score.component.scss'],
+  providers: [
+    {
+      provide: USER_SCORE_WIDTH_CONFIG_TOKEN,
+      useValue: defaultUserScoreConfig
+    },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserScoreComponent implements AfterViewInit {
@@ -27,11 +34,15 @@ export class UserScoreComponent implements AfterViewInit {
   startAngle!: number;
   endAngle!: number;
   radius!: number;
-  userScoreCoefficient = USER_SCORE_COEFFICIENT;
+  userScoreCoefficient = this.userScoreConfig.coefficient;
 
-  constructor() {}
+  constructor(
+    @Inject(USER_SCORE_WIDTH_CONFIG_TOKEN)
+    private userScoreConfig: UserScoreConfig
+  ) {}
 
   ngAfterViewInit(): void {
+    console.log(this.userScoreConfig)
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
     if (this.ctx) {
@@ -49,27 +60,27 @@ export class UserScoreComponent implements AfterViewInit {
 
     let color: string;
     switch (true) {
-      case this.percent > USER_SCORE_PERCENTAGE_LEVELS.none &&
-        this.percent <= USER_SCORE_PERCENTAGE_LEVELS.extraSmall:
-        color = USER_SCORE_LEVEL_COLORS.extraSmall;
+      case this.percent > this.userScoreConfig.percentageLevels.none &&
+        this.percent <= this.userScoreConfig.percentageLevels.extraSmall:
+        color = this.userScoreConfig.levelColors.extraSmall;
         break;
-      case this.percent > USER_SCORE_PERCENTAGE_LEVELS.extraSmall &&
-        this.percent <= USER_SCORE_PERCENTAGE_LEVELS.small:
-        color = USER_SCORE_LEVEL_COLORS.small;
+      case this.percent > this.userScoreConfig.percentageLevels.extraSmall &&
+        this.percent <= this.userScoreConfig.percentageLevels.small:
+        color = this.userScoreConfig.levelColors.small;
         break;
-      case this.percent > USER_SCORE_PERCENTAGE_LEVELS.small &&
-        this.percent <= USER_SCORE_PERCENTAGE_LEVELS.medium:
-        color = USER_SCORE_LEVEL_COLORS.medium;
+      case this.percent > this.userScoreConfig.percentageLevels.small &&
+        this.percent <= this.userScoreConfig.percentageLevels.medium:
+        color = this.userScoreConfig.levelColors.medium;
         break;
-      case this.percent > USER_SCORE_PERCENTAGE_LEVELS.medium &&
-        this.percent <= USER_SCORE_PERCENTAGE_LEVELS.large:
-        color = USER_SCORE_LEVEL_COLORS.large;
+      case this.percent > this.userScoreConfig.percentageLevels.medium &&
+        this.percent <= this.userScoreConfig.percentageLevels.large:
+        color = this.userScoreConfig.levelColors.large;
         break;
-      case this.percent > USER_SCORE_PERCENTAGE_LEVELS.large:
-        color = USER_SCORE_LEVEL_COLORS.extraLarge;
+      case this.percent > this.userScoreConfig.percentageLevels.large:
+        color = this.userScoreConfig.levelColors.extraLarge;
         break;
       default:
-        color = USER_SCORE_LEVEL_COLORS.extraSmall;
+        color = this.userScoreConfig.levelColors.extraSmall;
     }
 
     // Очистити холст
