@@ -42,7 +42,6 @@ export class UserScoreComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    console.log(this.userScoreConfig)
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
     if (this.ctx) {

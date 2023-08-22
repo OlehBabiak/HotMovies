@@ -32,7 +32,7 @@ export class MovieItemComponent {
     private userScoreConfig: UserScoreConfig
   ) {}
 
-  getFullImageUrl(imageUrl: string): string {
+  getFullImageUrl(imageUrl: string | undefined): string {
     return BASE_IMG_URL + imageUrl;
   }
 }

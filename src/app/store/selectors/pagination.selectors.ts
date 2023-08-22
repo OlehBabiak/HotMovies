@@ -1,9 +1,18 @@
 import { AppState } from '../reducers';
+import { createSelector } from '@ngrx/store';
+import { PaginationState } from '../reducers/pagination.reducers';
 
-export const selectPage = (state: AppState) => {
-  return (state.pagination.page);
+export const selectPagination = (state: AppState) => {
+  return state?.pagination;
 };
 
-export const selectMovies = (state: AppState) => {
-  return (state.pagination.results);
-};
+export const selectPage = createSelector(
+  selectPagination,
+  (state: PaginationState) => state?.page
+);
+
+
+export const selectMovies = createSelector(
+  selectPagination,
+  (state: PaginationState) => state?.results
+);
