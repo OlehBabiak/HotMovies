@@ -1,10 +1,10 @@
 <section class="card">
   <a>
-    <img [src]="getFullImageUrl(movie?.poster_path)" alt="sheep" />
+    <img [src]="getFullImageUrl(movie.poster_path)" alt="sheep" />
   </a>
   <div class="card__content">
-    <h3>{{movie?.title}}</h3>
-    <p>{{movie?.release_date}}</p>
+    <h3>{{movie.title}}</h3>
+    <p>{{movie.release_date}}</p>
     <app-user-score class="score-container" [percent]="movie.vote_average * 10"
                     [width]="userScoreWidth"></app-user-score>
   </div>
